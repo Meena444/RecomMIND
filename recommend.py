@@ -9,10 +9,10 @@ from utils import padOrCut, load_metadata
 
 # -------- Load Args and Data --------
 class Args:
-    seq_len = 5
-    D = 8
-    K = 3
-    R = 3
+    seq_len = 5 #sequence length of history of user (last 5 items)
+    D = 8 # Embedding dimensions for output
+    K = 3 # No of interest capsules
+    R = 3 # Routing interactions
     n_neg = 2
     lr = 0.001
 
@@ -23,7 +23,7 @@ print("Loading data and model...")
 # Load ratings
 ratings = pd.read_csv("data/Appliances.csv", header=None, names=['userId', 'itemId', 'rate', 'timestamp'])
 
-# Load metadata
+# Load metadata for additional info about the dataset (cold-start recommendations)
 with open("data/meta_Appliances.json") as f:
     metadata = [json.loads(line) for line in f]
 meta_df = load_metadata(metadata)

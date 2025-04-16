@@ -91,6 +91,6 @@ if __name__ == '__main__':
     model = MIND(args, embedNum=len(itemEncId) + 1, userProfileDim=userProfileDim, itemProfileDim=itemProfileDim)
     train(args, model, trainData)
 
-    # ✅ Save model for use in recommend.py
+    #Save model 
     th.save(model.state_dict(), "model.pth")
     print("Training complete. Model saved to model.pth")
